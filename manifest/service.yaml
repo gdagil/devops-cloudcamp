@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+  namespace: devopscloudrucamp
+spec:
+  type: ClusterIP
+  selector:
+    app: cloudcamp-test-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
