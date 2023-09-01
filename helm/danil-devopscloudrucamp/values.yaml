@@ -5,7 +5,7 @@ app:
     repository: danil2286/cloudcamp-devops
     imagePullSecrets: []
     pullPolicy: Always
-    tag: "0.1.0"
+    tag: "v0.1.0"
 
   environment:
     author: "Danila Gudynin"

@@ -2,7 +2,7 @@ name: Build docker image and publish helm chart
 
 on:
   push:
-    tags: [ '*.*.*' ]
+    tags: [ 'v*.*.*' ]
 
 env:
   REGISTRY: docker.io
