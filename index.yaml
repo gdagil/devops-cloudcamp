@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  danil-devopscloudrucamp:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-09-01T16:31:35.48491407Z"
+    description: A Helm chart for Kubernetes
+    digest: b84521021029c70cbbdd525474024399383fd604b494cfbba9728695b7ef6688
+    name: danil-devopscloudrucamp
+    type: application
+    urls:
+    - https://github.com/gdagil/devops-cloudcamp/releases/download/danil-devopscloudrucamp-0.1.0/danil-devopscloudrucamp-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-09-01T16:31:35.484921871Z"
