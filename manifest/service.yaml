@@ -8,6 +8,7 @@ spec:
   selector:
     app: cloudcamp-test-app
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8000
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
