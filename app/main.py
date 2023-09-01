@@ -60,7 +60,7 @@ def readiness_probe() -> dict[str,str]:
     response_model=dict[str,str],
 )
 def liveness_probe() -> dict[str,str]:
-    if not settings._hostname and settings.author and settings.uuid:
+    if settings._hostname and settings.author and settings.uuid:
         return {"status": "success"}
     else:
         raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE)
