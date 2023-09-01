@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: danil2286/cloudcamp-devops:latest
+          image: danil2286/cloudcamp-devops:0.1.0
           imagePullPolicy: Always
           env:
             - name: AUTHOR
