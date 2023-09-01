@@ -1,0 +1,34 @@
+- name: Configure host
+  hosts: webservers
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Create user
+      user:
+        name: cloudru
+        comment: Sber Cloud
+        password: "{{ 'cloudpass' | password_hash('sha512') }}"
+        create_home: true
+        shell: /bin/bash
+        state: present
+
+    - name: Allow SSH authentication
+      authorized_key:
+        user: cloudru
+        key: "{{ lookup('file', '../data/cloudru_key.pub') }}"
+        state: present
+
+    - name: Disable SSH root login
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: 'PermitRootLogin no'
+        backup: yes
+      notify: Restart SSH
+
+  handlers:
+    - name: Restart SSH
+      systemd:
+        name: ssh
+        state: restarted

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  namespace: devopscloudrucamp
+  labels:
+    app: cloudcamp-test-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cloudcamp-test-app
+  template:
+    metadata:
+      labels:
+        app: cloudcamp-test-app
+    spec:
+      containers:
+        - name: webapp
+          image: danil2286/cloudcamp-devops:latest
+          imagePullPolicy: Always
+          env:
+            - name: AUTHOR
+              value: "Danila Gudynin"
+            - name: UUID
+              value: "bc3b0e31-edbf-464b-bc64-b71083083fb8"
+          resources: 
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 15

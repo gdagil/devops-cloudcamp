@@ -1,0 +1,43 @@
+app:
+  replicaCount: 3
+
+  image:
+    repository: danil2286/cloudcamp-devops
+    imagePullSecrets: []
+    pullPolicy: Always
+    tag: "latest"
+
+  environment:
+    author: "Danila Gudynin"
+    uuid: "bc3b0e31-edbf-464b-bc64-b71083083fb8"
+
+  nameOverride: ""
+  fullnameOverride: ""
+  podAnnotations: {}
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+
+service:
+  type: ClusterIP
+  port: 80
