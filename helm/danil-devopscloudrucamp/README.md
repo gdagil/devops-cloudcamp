@@ -1,6 +1,6 @@
 # Python webapp packaged by gdagil
 
-Простое приложение на фреймворке [`FastAPI`](https://fastapi.tiangolo.com/) - [тут](../app/README.md)
+Простое приложение на фреймворке [`FastAPI`](https://fastapi.tiangolo.com/) - [тут](../../app/README.md)
 
 ## Prerequisites
 * Kubernetes 1.19+
