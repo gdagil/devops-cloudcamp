@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  webapp:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      AUTHOR: "Danila_Gudynin"
+      UUID: "bc3b0e31-edbf-464b-bc64-b71083083fb8"
+    ports:
+      - 8000:8000
+  
